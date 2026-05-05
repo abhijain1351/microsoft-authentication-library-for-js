@@ -62,14 +62,14 @@ if (sampleName && isSample) {
 if (logHttpRequests) {
     // Configure morgan module to log all requests.
     app.use(morgan('dev'));
-
-    // Log all request headers for every request.
-    app.use(function (req, res, next) {
-        console.log(`[Headers] ${req.method} ${req.url}`);
-        console.log(JSON.stringify(req.headers, null, 2));
-        next();
-    });
 }
+
+// Log all request headers for every request.
+app.use(function (req, res, next) {
+    console.log(`[Headers] ${req.method} ${req.url}`);
+    console.log(JSON.stringify(req.headers, null, 2));
+    next();
+});
 
 
 // set up a route for redirect.html. When using popup and silent APIs, 
