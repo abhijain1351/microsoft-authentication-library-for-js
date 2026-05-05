@@ -39,6 +39,13 @@ if (argv.p) {
 
 let logHttpRequests = true;
 
+// Log all request headers for every request (registered before static middleware to capture all requests).
+app.use(function (req, res, next) {
+    console.log(`[Headers] ${req.method} ${req.url}`);
+    console.log(JSON.stringify(req.headers, null, 2));
+    next();
+});
+
 // Set the front-end folder to serve public assets.
 app.use("/lib", express.static(path.join(__dirname, "../../../lib/msal-browser/lib")));
 
@@ -63,13 +70,6 @@ if (logHttpRequests) {
     // Configure morgan module to log all requests.
     app.use(morgan('dev'));
 }
-
-// Log all request headers for every request.
-app.use(function (req, res, next) {
-    console.log(`[Headers] ${req.method} ${req.url}`);
-    console.log(JSON.stringify(req.headers, null, 2));
-    next();
-});
 
 
 // set up a route for redirect.html. When using popup and silent APIs, 
