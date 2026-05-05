@@ -40,11 +40,11 @@ if (argv.p) {
 let logHttpRequests = true;
 
 // Log all request headers for every request (registered before static middleware to capture all requests).
-app.use(function (req, res, next) {
-    console.log(`[Headers] ${req.method} ${req.url}`);
-    console.log(JSON.stringify(req.headers, null, 2));
-    next();
-});
+// app.use(function (req, res, next) {
+//     console.log(`[Headers] ${req.method} ${req.url}`);
+//     console.log(JSON.stringify(req.headers, null, 2));
+//     next();
+// });
 
 // Set the front-end folder to serve public assets.
 app.use("/lib", express.static(path.join(__dirname, "../../../lib/msal-browser/lib")));
