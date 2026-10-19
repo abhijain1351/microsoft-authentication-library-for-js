@@ -1,7 +1,7 @@
 // Config object to be passed to Msal on creation
 const msalConfig = {
     auth: {
-        clientId: "c6285f68-9f7b-46bf-8bba-d9036dbf1a5c",
+        clientId: "324052a2-f022-4350-9f84-39a7a6251a37",
         authority: "https://login.microsoftonline.com/common"
     },
     cache: {
